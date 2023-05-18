@@ -1,37 +1,45 @@
 import './App.css';
 import { useState } from 'react';
 
-function Box({ text }) {
+function Box({ letter, color }) {
   return (
-    <div className="box">
-      {text}
+    <div className="box" style={{backgroundColor: {color}}}>
+      {letter}
     </div>
   );
 }
 
-const boxes = [
-  { id: 1, text: "" },
-  { id: 2, text: "" },
-  { id: 3, text: "" },
-  { id: 4, text: "" },
-  { id: 5, text: "" },
-  { id: 6, text: "" }
-];
+const board = [
+  [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
+  [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
+  [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
+  [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
+  [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
+  [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}],
+  [{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"},{letter:"",status:"white"}]
+ ];
 
 
 function App() {
-  const [index, setIndex] = useState(0);
   function handleKeyPress(e) {
     console.log("You pressed a key." + e.key)
-    setIndex(index => index + 1);
-    console.log(index);
   }
   return (
     //onKeyPess from ChatGPT
     <div className="App" tabIndex={0} onKeyPress={(e) => { handleKeyPress(e); }}>
-      {boxes.map(boxes => (
-        <Box key={boxes.id} text={boxes.text} />
-      ))}
+      {board.map((board,idx) => 
+      {
+        return (
+          <div className = "row" key={idx}>
+            {
+              board.map((row,idx) => {
+                return <Box letter = {row.letter} color= {row.status} key = {idx}/>
+              })
+            }  
+          </div>
+        );
+      }
+      )}
     </div>
   );
 }
