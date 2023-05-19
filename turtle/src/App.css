@@ -3,7 +3,7 @@
   height: 100%;
   padding: 0;
   margin: 0;
-  background-color: linear-gradient(to right, blue 50%, yellow 50%);
+  background: linear-gradient(to right, blue 50%, yellow 50%);
   color: "black";
 }
 
