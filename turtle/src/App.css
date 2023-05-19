@@ -1,7 +1,9 @@
 .App {
   width: 100%;
   height: 100%;
-  background-color: grey;
+  padding: 0;
+  margin: 0;
+  background-color: linear-gradient(to right, blue 50%, yellow 50%);
   color: "black";
 }
 
@@ -15,6 +17,7 @@
   flex-direction: 'row';  
   width: 100px;
   height: 100px;
+  background-color: white;
   border: 5px solid #000;
   padding: 10px;
   margin: 5px;
