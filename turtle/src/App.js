@@ -69,6 +69,7 @@ function App() {
       return;
     }
     if(letter == 'backspace'){
+      //from chat gpt
       temp[row] = temp[row].slice(0,-1);
       setGuesses(temp);
       return;
@@ -82,7 +83,7 @@ function App() {
     }
     
   return (
-    //onKeyPess from ChatGPT
+    //onKeyDown from ChatGPT
     <div className="App" tabIndex={0} onKeyDown={(e) => { handleKeyPress(e); }}>
           <Row className = "row" guess = {guesses[0]} status = {statuses[0]}/>
           <Row className = "row" guess = {guesses[1]} status = {statuses[1]}/>
