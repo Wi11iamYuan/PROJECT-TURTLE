@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Box({ letter, color }) {
   let style = {
@@ -33,7 +33,7 @@ function Row( {guess, status} ){
   );
 }
 
-let guesses = [
+let guessTrack = [
 "",
 "",
 "",
@@ -43,7 +43,7 @@ let guesses = [
 ""
 ];
 
-let statuses = [
+let statusTrack = [
 ['white', 'white','white','white','white','white'],
 ['white', 'white','white','white','white','white'],
 ['white', 'white','white','white','white','white'],
@@ -55,19 +55,35 @@ let statuses = [
 
 function App() {
   const [row, setRow] = useState(0);
-  const [guessTrack, setGuessTrack] = useState(guesses);
+  const [guesses, setGuesses] = useState(guessTrack);
+  const [statuses, setStatuses] = useState(statusTrack);
+  const [answer, setAnswer] = useState("turtle");
   
    function handleKeyPress(e) {
     console.log("You pressed a key " + e.key);
-    let word = guessTrack[0]
-    word= word+e.key;
-    let guess = guessTrack;
-    guess[0] = word
-    setGuessTrack(guess)
+    let letter = e.key.toLowerCase()
+    // got ... from chat gpt
+    let temp = [...guesses];
+    if(letter == 'enter'){
+      setRow(row+1);
+      return;
     }
+    if(letter == 'backspace'){
+      temp[row] = temp[row].slice(0,-1);
+      setGuesses(temp);
+      return;
+    }
+    if(temp[row].length >=6){
+      console.log("max")
+      return;
+    }
+    temp[row] += letter;
+    setGuesses(temp);
+    }
+    
   return (
     //onKeyPess from ChatGPT
-    <div className="App" tabIndex={0} onKeyPress={(e) => { handleKeyPress(e); }}>
+    <div className="App" tabIndex={0} onKeyDown={(e) => { handleKeyPress(e); }}>
           <Row className = "row" guess = {guesses[0]} status = {statuses[0]}/>
           <Row className = "row" guess = {guesses[1]} status = {statuses[1]}/>
           <Row className = "row" guess = {guesses[2]} status = {statuses[2]}/>
