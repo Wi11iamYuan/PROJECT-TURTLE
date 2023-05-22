@@ -7,10 +7,11 @@ function Box({ letter, color }) {
   width: '50px',
   height: '50px',
   backgroundColor: color,
-  border: '5px solid #000',
+  border: '3px solid gray',
   padding: '10px',
-  margin: '5px',
+  margin: '2px',
   textAlign: 'center'
+  
   }
   return (
     <div className="box" style = {style}>
@@ -18,6 +19,8 @@ function Box({ letter, color }) {
     </div>
   );
 }
+
+
 
 function Row( {guess, status} ){
   let letters = guess.split("");
