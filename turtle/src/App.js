@@ -6,9 +6,9 @@ function Box({ letter, color, txtColor, transition}) {
     display: 'flex',
     width: '50px',
     height: '50px',
-    border: '5px solid #000',
+    border: '3px solid gray',
     padding: '10px',
-    margin: '5px',
+    margin: '2px',
     textAlign: 'center',
     //got from chatgpt
     transition: 'transform 0.3s ease-in-out, color 0.3s ease-in-out, background-color 0.3s ease-in-out',
