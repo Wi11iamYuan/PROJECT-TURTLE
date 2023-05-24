@@ -120,6 +120,8 @@ function App() {
    const handleKeyPress = async (e) => {
     console.log("You pressed a key " + e.key);
     let letter = e.key.toUpperCase()
+
+    
     if(!validKeys.includes(letter)){
       return;
     }
@@ -227,6 +229,7 @@ function App() {
           <Row className = "row" guess = {guesses[5]} status = {statuses[5]} color = {colorTrack[5]} transitions = {transitions[5]} typed = {typed[5]}/>
           <Row className = "row" guess = {guesses[6]} status = {statuses[6]} color = {colorTrack[6]} transitions = {transitions[6]} typed = {typed[6]}/>
     </div>
+    
   );
 }
 
