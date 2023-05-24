@@ -4,11 +4,18 @@ import { useState, useEffect, useRef } from 'react';
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Confetti from "react-confetti"
+
+
 
 function Title() {
+  let style = {
+    color:'#006400'
+    
+  }
   return (
     <div>
-      <div className='Title'>Turtle</div>
+      <div className='Title'>T<span style={style}>urtle</span></div>
     </div>
     
   )
@@ -115,7 +122,13 @@ const typedTrack = [
 //make it so you dont have to click the div to type 
 
 let validKeys = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", 'ENTER', 'BACKSPACE']
+
 function App() {
+  const [uiProps, setUiProps] = useState({
+  //Confetti eff
+  showConfetti: false,
+
+})
   const [row, setRow] = useState(0);
   const [guesses, setGuesses] = useState(guessTrack);
   const [statuses, setStatuses] = useState(statusTrack);
@@ -195,6 +208,11 @@ function App() {
       }
       if(correct===6){
         setWon(true);
+        
+        setUiProps({
+        // Confetti eff
+        showConfetti: true,
+        })
       }
       setRow(row+1);
       return;
@@ -229,7 +247,7 @@ function App() {
     //onKeyDown from ChatGPT
     //make it so you dont have to click
     <div className="App" tabIndex={0} onKeyDown={(e) => { handleKeyPress(e); }}>
-      
+      {uiProps.showConfetti && <Confetti />}
       <Title />
           <Row className = "row" guess = {guesses[0]} status = {statuses[0]} color = {colorTrack[0]} transitions = {transitions[0]} typed = {typed[0]}/>
           <Row className = "row" guess = {guesses[1]} status = {statuses[1]} color = {colorTrack[1]} transitions = {transitions[1]} typed = {typed[1]}/>
