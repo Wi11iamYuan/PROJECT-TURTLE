@@ -10,6 +10,7 @@ function Title() {
     <div>
       <h1 className='Title'>Turtle</h1>
     </div>
+    
   )
 }
 
@@ -228,6 +229,7 @@ function App() {
     //onKeyDown from ChatGPT
     //make it so you dont have to click
     <div className="App" tabIndex={0} onKeyDown={(e) => { handleKeyPress(e); }}>
+      <img src={'palmtrees.jpg'} />
       <Title />
           <Row className = "row" guess = {guesses[0]} status = {statuses[0]} color = {colorTrack[0]} transitions = {transitions[0]} typed = {typed[0]}/>
           <Row className = "row" guess = {guesses[1]} status = {statuses[1]} color = {colorTrack[1]} transitions = {transitions[1]} typed = {typed[1]}/>
