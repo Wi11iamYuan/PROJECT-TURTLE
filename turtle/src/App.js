@@ -1,6 +1,11 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+import Title from 'Title';
+
 function Box({ letter, color, txtColor, transition}) {
   let style = {
     display: 'flex',
@@ -10,6 +15,9 @@ function Box({ letter, color, txtColor, transition}) {
     padding: '10px',
     margin: '2px',
     textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: "40px",
+    
     //got from chatgpt
     transition: 'transform 0.3s ease-in-out, color 0.3s ease-in-out, background-color 0.3s ease-in-out',
     transform: transition ? 'none' : 'none',
@@ -117,7 +125,7 @@ function App() {
       console.log(dict)
       for(let i = 0; i < answer.length;i++){
         if(progress[i] === answer[i]){
-          tempStatus[row][i] = 'green';
+          tempStatus[row][i] = '#6ca965'
           dict[answer[i]]--;
           tempColors[row][i] = 'white';
           tempTransitions[row][i] = true;
@@ -128,12 +136,12 @@ function App() {
 
         }else{
           if(letters.includes(progress[i]) && tempStatus[row][i] !== 'green' && dict[progress[i]] > 0){
-            tempStatus[row][i] = 'yellow';
+            tempStatus[row][i] = '#c8b653';
             dict[progress[i]]--;
             tempColors[row][i] = 'white';
             tempTransitions[row][i] = true;
           }else{
-            tempStatus[row][i] = 'gray';
+            tempStatus[row][i] = '#a9a9a9';
             tempColors[row][i] = 'white';
             tempTransitions[row][i] = true;
           }
