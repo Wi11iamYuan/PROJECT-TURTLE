@@ -16,6 +16,41 @@
   user-select: none;
 }
 
+header {
+  position: relative;
+}
+
+h1 {
+  position: relative;
+  z-index: 1;
+}
+
+.App img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* https://makeschool.org/mediabook/oa/tutorials/react-fundamentals-vm0/build-a-header-component/ */
+.Title {
+box-sizing: border-box;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: baseline;
+padding: 1em;
+margin-bottom: 2em;
+background-color: #D3D3D3;
+color: #73be73;
+font-family: "Cabin", Times, sans-serif;
+}
+
+
+
 html, body { height: 100%; }
 body {
   background: radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #C2B280 100%);
