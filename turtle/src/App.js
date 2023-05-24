@@ -100,6 +100,8 @@ function App() {
    const handleKeyPress = async (e) => {
     console.log("You pressed a key " + e.key);
     let letter = e.key.toUpperCase()
+
+    
     if(!validKeys.includes(letter)){
       return;
     }
@@ -188,6 +190,7 @@ function App() {
   return (
     //onKeyDown from ChatGPT
     <div className="App" tabIndex={0} onKeyDown={(e) => { handleKeyPress(e); }}>
+          <Title />
           <Row className = "row" guess = {guesses[0]} status = {statuses[0]} color = {colorTrack[0]} transitions = {transitions[0]}/>
           <Row className = "row" guess = {guesses[1]} status = {statuses[1]} color = {colorTrack[1]} transitions = {transitions[1]}/>
           <Row className = "row" guess = {guesses[2]} status = {statuses[2]} color = {colorTrack[2]} transitions = {transitions[2]}/>
@@ -196,12 +199,9 @@ function App() {
           <Row className = "row" guess = {guesses[5]} status = {statuses[5]} color = {colorTrack[5]} transitions = {transitions[5]}/>
           <Row className = "row" guess = {guesses[6]} status = {statuses[6]} color = {colorTrack[6]} transitions = {transitions[6]}/>
     </div>
+    
   );
-  return(
-    <div className='App'>
-      <Title />
-    </div>
-  )
+  
 }
 
 export default App;
