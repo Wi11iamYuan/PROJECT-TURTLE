@@ -8,3 +8,16 @@
   justify-content: center;
 }
 
+/* https://makeschool.org/mediabook/oa/tutorials/react-fundamentals-vm0/build-a-header-component/ */
+.Title {
+box-sizing: border-box;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: baseline;
+padding: 1em;
+margin-bottom: 2em;
+background-color: #003c00;
+color: #fff;
+font-family: "Cabin", Times, serif;
+}
