@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Title from 'Title';
+import Title from './title';
+
+
 
 function Box({ letter, color, txtColor, transition}) {
   let style = {
@@ -195,6 +197,11 @@ function App() {
           <Row className = "row" guess = {guesses[6]} status = {statuses[6]} color = {colorTrack[6]} transitions = {transitions[6]}/>
     </div>
   );
+  return(
+    <div className='App'>
+      <Title />
+    </div>
+  )
 }
 
 export default App;
