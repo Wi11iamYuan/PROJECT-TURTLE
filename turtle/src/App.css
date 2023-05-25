@@ -102,6 +102,19 @@ body {
   animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.5s infinite, swell 7s ease -5s infinite;
   opacity: 0.3;
 }
+.turtle {
+  background-image: url(animatedturtle-removebg-preview.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: moveTurtle 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  width: 100px;
+  height: 100px;
+}
+
 @keyframes wave {
   0%{
     margin-left: 0;
@@ -118,4 +131,17 @@ body {
     transform: translate3d(0,5px,0);
   }
 }
-
+@keyframes moveTurtle{
+  0%{
+bottom: 5%;
+  }
+  20%{
+    bottom: 50%;
+  }
+  80%{
+    bottom: 50%;
+  }
+  100%{
+    bottom: 5%;
+  }
+}
