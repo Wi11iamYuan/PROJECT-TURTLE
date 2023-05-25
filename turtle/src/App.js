@@ -124,6 +124,7 @@ const typedTrack = [
 let validKeys = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", 'ENTER', 'BACKSPACE']
 
 function App() {
+  //https://www.youtube.com/watch?v=8VGIsLF5LCw&t=312s for confetti
   const [uiProps, setUiProps] = useState({
   //Confetti eff
   showConfetti: false,
