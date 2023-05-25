@@ -27,11 +27,8 @@ header {
 /* https://makeschool.org/mediabook/oa/tutorials/react-fundamentals-vm0/build-a-header-component/ */
 .Title {
 font-size: 90px;
-box-sizing: border-box;
-width: 100%;
 display: flex;
 justify-content: center;
-align-items: baseline;
 padding: 1px;
 margin-bottom: 2px;
 color: #73be73;
@@ -71,16 +68,6 @@ body {
   background: radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #C2B280 100%);
   overflow: hidden;
 }
-
-.rain:before{
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: white;
-  animation: lighting 4s linear infinite;
-  opacity:0;
-}
 .ocean {
   height: 5%;
   width: 100%;
@@ -119,12 +106,39 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
-  bottom: 5%;
-  left: 50%;
+  bottom: 10%;
+  left: 30%;
   transform: translateX(-50%);
-  animation: moveTurtle 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-  width: 100px;
-  height: 100px;
+  animation: moveTurtle 14s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  width: 230px;
+  height: 190px;
+  rotate: 5deg;
+}
+
+.turtle1 {
+  background-image: url(animatedturtle-removebg-preview.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  bottom: 60%;
+  left: 80%;
+  rotate: 30deg;
+  transform: translateX(-50%);
+  width: 230px;
+  height: 190px;
+}
+
+.turtle2 {
+  background-image: url(animatedturtle-removebg-preview.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  bottom: 55%;
+  left: 10%;
+  rotate: -25deg;
+  transform: translateX(-50%);
+  width: 230px;
+  height: 190px;
 }
 
 @keyframes wave {
@@ -150,18 +164,47 @@ body {
 }
 @keyframes moveTurtle{
   0%{
-bottom: 5%;
+bottom: 10%;
   }
-  20%{
-    bottom: 50%;
+ 
+  50%{
+    bottom: 2%;
   }
-  80%{
-    bottom: 50%;
-  }
+
   100%{
-    bottom: 5%;
+    bottom: 10%;
   }
 }
+
+@-webkit-keyframes animateCloud {
+  0% {
+      margin-left: -1000px;
+  }
+  100% {
+      margin-left: 100%;
+  }
+}
+
+@-moz-keyframes animateCloud {
+  0% {
+      margin-left: -1000px;
+  }
+  100% {
+      margin-left: 100%;
+  }
+}
+
+@keyframes animateCloud {
+  0% {
+      margin-left: -1000px;
+  }
+  100% {
+      margin-left: 100%;
+  }
+}
+
+
+
 @keyframes action {
   0% { transform: translateY(0); }
   100% { transform: translateY(-100px); }
@@ -178,9 +221,9 @@ bottom: 5%;
   }
   11%
   {
-    opacity: 1;
+    opacity: 40%;
   }
-  14%
+  12%
   {
     opacity: 0;
   }
@@ -190,9 +233,9 @@ bottom: 5%;
   }
   21%
   {
-    opacity: 1;
+    opacity: 40%;
   }
-  24%
+  22%
   {
     opacity: 0;
   }

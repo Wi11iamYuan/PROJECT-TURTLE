@@ -155,6 +155,65 @@ function Feedback({text, display}){
   );
 }
 
+function Lose({ show }){
+  let style = {
+    display: 'flex',
+    position: 'fixed',
+    top:'0',
+    bottom:'0',
+    left:'0',
+    right:'0',
+    background: show? 'black': 'transparent',
+    opacity: '65%',
+    transition: 'background 2s ease-in-out'
+  }
+return(
+  <div>
+    <div className='lose' style = {style}></div>
+  </div>
+);
+}
+
+function Lightening ({ show }){
+let style = {
+  position: 'absolute',
+  display: show? 'flex': 'none',
+  position: 'fixed',
+  top:'0',
+  bottom:'0',
+  left:'0',
+  right:'0',
+  background: 'white',
+  animation: show? 'lighting 10s linear infinite': 'none',
+  opacity:'0'
+};
+  return(
+    <div>
+      <div className = 'light'  style={style}></div>
+    </div>
+  );
+}
+
+function Clouds({show, positionX, positionY, speed}){
+  let style = {
+    backgroundImage: 'url(../output-onlinepngtools.png)',
+    backgroundSize: '100% 70%',
+    backgroundRepeat: 'no-repeat',
+    position: 'absolute',
+    bottom: positionX,
+    left: positionY,
+    transform: 'translateX(-50%)',
+    display: show? 'flex':'none',
+    width: '1000px',
+    height: '400px',
+    opacity: '20%',
+	  animation: show ? 'animateCloud ' + speed + ' linear infinite' : 'none'
+  }
+  return(
+    <div className = 'cloud' style ={style}></div>
+  );
+}
+
 //make it so you dont have to click the div to type
 
 let validKeys = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", 'ENTER', 'BACKSPACE']
@@ -175,6 +234,7 @@ function App() {
   const [shaked, setShaked] = useState(shakeTrack);
   const [answer, setAnswer] = useState(WORD);
   const [display, setDisplay] = useState(false);
+  const [show, setShow] = useState(false);
   const [won, setWon] = useState(false);
   //formatting from chat gpt
   const handleKeyPress = async (e) => {
@@ -264,6 +324,7 @@ function App() {
         })
       }else if(row===6 && correct !== 6){
           setDisplay(true);
+          setShow(true);
       }
       setRow(row + 1);
       return;
@@ -315,6 +376,13 @@ function App() {
         <Row className="row" guess={guesses[5]} status={statuses[5]} color={colorTrack[5]} transitions={transitions[5]} typed={typed[5]} shaked = {shaked[5]}/>
         <Row className="row" guess={guesses[6]} status={statuses[6]} color={colorTrack[6]} transitions={transitions[6]} typed={typed[6]} shaked = {shaked[6]}/>
       </div>
+      <Clouds positionX = {'10%'} positionY = {'5%'} speed = {'35s'} show = {show}/>
+      <Clouds positionX = {'60%'} positionY = {'20%'} speed = {'25s'} show = {show}/>
+      <Clouds positionX = {'0%'} positionY = {'10%'} speed = {'20s'} show = {show}/>
+      <Clouds positionX = {'-30%'} positionY = {'0%'} speed = {'15s'} show = {show}/>
+      <Clouds positionX = {'30%'} positionY = {'25%'} speed = {'12s'} show = {show}/>
+      <Lose  show = {show}/>
+      <Lightening show={show}/>
       <Feedback display = {display} text = {answer}/>
 
     </div>
