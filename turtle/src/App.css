@@ -7,13 +7,13 @@
   display:flex;
   justify-content: center;
 }
+
 .App{
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  user-select: none;
 }
 
 header {
@@ -26,8 +26,7 @@ header {
 
 /* https://makeschool.org/mediabook/oa/tutorials/react-fundamentals-vm0/build-a-header-component/ */
 .Title {
-font-size: 100px;
-
+font-size: 90px;
 box-sizing: border-box;
 width: 100%;
 display: flex;
@@ -35,11 +34,36 @@ justify-content: center;
 align-items: baseline;
 padding: 1px;
 margin-bottom: 2px;
-color: #006400;
+color: #73be73;
 font-family: "Cabin", Times, sans-serif;
 }
 
+.middle {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
 
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}  
 
 html, body { height: 100%; }
 body {
