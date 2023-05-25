@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 import React from 'react';
 import logo from './logo.svg';
@@ -128,6 +128,33 @@ false,
 false
 ];
 
+function Feedback({text, display}){
+  let style = {
+    position: 'fixed',
+    boxSizing: 'border-box',
+    bottom: '0',
+    left: '50%',
+    display: 'flex',
+    boxSizing: 'border-box',
+    justifyContent: 'center',
+    transform: 'translate(-50%, -50%)',
+    alignItems: 'center',
+    textAlign: 'center',
+    padding: '10px',
+    fontWeight: 'bold',
+    borderRadius: '12px',
+    marginBottom: '50px',
+    transition: 'background-color 4s ease-in-out, color 4s ease-in-out',
+    color: display ? 'white' : 'transparent',
+    backgroundColor: display ? 'black' : 'transparent'
+  };
+  return(
+  <div>
+    <div className="feedback" style={style}>{text}</div>
+  </div>
+  );
+}
+
 //make it so you dont have to click the div to type
 
 let validKeys = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", 'ENTER', 'BACKSPACE']
@@ -146,6 +173,7 @@ function App() {
   const [typed, setTyped] = useState(typedTrack);
   const [shaked, setShaked] = useState(shakeTrack);
   const [answer, setAnswer] = useState(WORD);
+  const [display, setDisplay] = useState(false);
   const [won, setWon] = useState(false);
   //formatting from chat gpt
   const handleKeyPress = async (e) => {
@@ -167,14 +195,11 @@ function App() {
     let tempShaked = [...shaked];
 
     if (row === 7 || won) {
-      console.log("game over");
       return;
     }
     else if (letter === 'ENTER' && progress.length === 6) {
       progress = progress.toLowerCase();
       if(!(data.includes(progress))){
-        console.log('bad');
-        console.log(shaked)
         tempShaked[row] = true;
         setShaked(tempShaked);
         setTimeout(() => {
@@ -236,11 +261,10 @@ function App() {
         // Confetti eff
         showConfetti: true,
         })
+      }else if(row===6 && correct !== 6){
+          setDisplay(true);
       }
       setRow(row + 1);
-      if(row===7){
-        //JASON HERE
-      }
       return;
     }
     else if (letter === 'ENTER') {
@@ -258,7 +282,6 @@ function App() {
       return;
     }
     else if (temp[row].length >= 6) {
-      console.log("max")
       return;
     } else {
       temp[row] += letter;
@@ -268,10 +291,16 @@ function App() {
     }
   }
 
+  //chat gpt
+  useEffect(() => {
+    var input = document.getElementsByClassName('App');
+    var input = input[0];
+    input.focus();
+    input.click();
+  });
 
   return (
     //onKeyDown from ChatGPT
-    //make it so you dont have to click
     <div className="App" tabIndex={0} onKeyDown={(e) => { handleKeyPress(e); }}>
       {uiProps.showConfetti && <Confetti />}
 
@@ -285,7 +314,7 @@ function App() {
         <Row className="row" guess={guesses[5]} status={statuses[5]} color={colorTrack[5]} transitions={transitions[5]} typed={typed[5]} shaked = {shaked[5]}/>
         <Row className="row" guess={guesses[6]} status={statuses[6]} color={colorTrack[6]} transitions={transitions[6]} typed={typed[6]} shaked = {shaked[6]}/>
       </div>
-      <div className="feedback">hello</div>
+      <Feedback display = {display} text = {answer}/>
 
     </div>
 
