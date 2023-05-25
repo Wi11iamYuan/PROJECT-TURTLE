@@ -96,30 +96,22 @@ body {
   width: 6400px;
   height: 198px;
   animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-  -webkit-animation: action 1s infinite  alternate;
-    animation: action 1s infinite  alternate;
   transform: translate3d(0,0,0);
   
 }
 .wave:nth-of-type(2){
   top: -175px;
   animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
-  -webkit-animation: action 1s infinite  alternate;
-    animation: action 1s infinite  alternate;
   opacity: 1;
 }
 .wave:nth-of-type(3){
   top: -150px;
   animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.25s infinite, swell 7s ease -2.5s infinite;
-  -webkit-animation: action 1s infinite  alternate;
-    animation: action 1s infinite  alternate;
   opacity: 0.7;
 }
 .wave:nth-of-type(4){
   top: -150px;
   animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.5s infinite, swell 7s ease -5s infinite;
-  -webkit-animation: action 1s infinite  alternate;
-    animation: action 1s infinite  alternate;
   opacity: 0.3;
 }
 .turtle {
@@ -169,7 +161,7 @@ bottom: 5%;
   100%{
     bottom: 5%;
   }
-
+}
 @keyframes action {
   0% { transform: translateY(0); }
   100% { transform: translateY(-100px); }
