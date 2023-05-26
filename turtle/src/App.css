@@ -292,8 +292,8 @@ bottom: 10%;
 
 }
 
-@media(max-width: 2px){
+@media(max-width: 200px){
 .middle{
-  top: 55%;
+  top: 60%;
 }
 }
