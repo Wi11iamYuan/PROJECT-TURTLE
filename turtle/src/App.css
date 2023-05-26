@@ -295,5 +295,6 @@ bottom: 10%;
 @media(max-width: 1500px){
   .Title{
     justify-content: start;
+    margin-left: 20px;
   }
 }
