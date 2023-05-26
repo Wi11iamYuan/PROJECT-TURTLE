@@ -20,7 +20,15 @@ header {
   position: relative;
 }
 
-
+.credit{
+  position: fixed;
+  display:flex;
+  bottom:0;
+  left:0;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  color: white;
+}
 
 
 
