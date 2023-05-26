@@ -292,7 +292,7 @@ bottom: 10%;
 
 }
 
-@media(max-width: 1000px){
+@media(max-width: 992px){
 .middle{
   top: 70%;
 }
