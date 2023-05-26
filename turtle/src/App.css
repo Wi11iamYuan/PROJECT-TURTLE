@@ -292,7 +292,7 @@ bottom: 10%;
 
 }
 
-@media(max-width: 1400px){
+@media(max-width: 1600px){
   .Title{
     justify-content: start;
   }
