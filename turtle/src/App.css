@@ -292,8 +292,8 @@ bottom: 10%;
 
 }
 
-@media(max-width: 2px){
-.middle{
-  top: 90%;
-}
+@media(max-width: 996px){
+  .Title{
+    justify-content: start;
+  }
 }
