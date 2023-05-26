@@ -291,3 +291,9 @@ bottom: 10%;
   }
 
 }
+
+@media(max-width: 1200px){
+.middle{
+  top: 70%;
+}
+}
