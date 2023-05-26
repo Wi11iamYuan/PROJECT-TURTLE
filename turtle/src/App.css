@@ -140,7 +140,42 @@ body {
   width: 230px;
   height: 190px;
 }
-
+.seashell{
+  /* found online */
+  background-image: url(seashell.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  bottom: 20%;
+  left: 15%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 190px;
+  rotate: 20deg;
+}
+/* found online */
+.seashell2{
+  background-image: url(seashell2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  width: 50px;
+  height: 70px;
+  bottom: 50%;
+  left: 75%;
+  rotate: 160deg;
+}
+/* found online */
+.seashell3{
+  background-image: url(seashell3.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  width: 40px;
+  height: 100px;
+  bottom: 10%;
+  left: 85%;
+}
 @keyframes wave {
   0%{
     margin-left: 0;
