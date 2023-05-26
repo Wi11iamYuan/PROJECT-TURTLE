@@ -2,13 +2,11 @@ import './App.css';
 import { useState, useEffect } from 'react';
 
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Confetti from "react-confetti"
 import letWords from "./words.js";
 
 let data = letWords();
-
 let WORD = data[Math.floor(Math.random() * data.length)].toUpperCase();
 console.log(WORD)
 
@@ -196,6 +194,7 @@ let style = {
 
 function Clouds({show, positionX, positionY, speed}){
   let style = {
+    //found online
     backgroundImage: 'url(../output-onlinepngtools.png)',
     backgroundSize: '100% 70%',
     backgroundRepeat: 'no-repeat',
@@ -215,16 +214,19 @@ function Clouds({show, positionX, positionY, speed}){
 }
 
 //make it so you dont have to click the div to type
-
+function playMusic(music){
+  if(music){
+    //chat gpt
+    let audio = new Audio('../gentle-ocean-waves-mix-2018-19693.mp3');
+    audio.loop = true;
+    audio.play();
+  }
+}
 let validKeys = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", 'ENTER', 'BACKSPACE']
 
 function App() {
   //https://www.youtube.com/watch?v=8VGIsLF5LCw&t=312s for confetti
-  const [uiProps, setUiProps] = useState({
-  //Confetti eff
-  showConfetti: false,
-
-})
+  const [uiProps, setUiProps] = useState({showConfetti: false})
   const [row, setRow] = useState(0);
   const [guesses, setGuesses] = useState(guessTrack);
   const [statuses, setStatuses] = useState(statusTrack);
@@ -236,10 +238,13 @@ function App() {
   const [display, setDisplay] = useState(false);
   const [show, setShow] = useState(false);
   const [won, setWon] = useState(false);
+  const [music, setMusic] = useState(true);
   //formatting from chat gpt
   const handleKeyPress = async (e) => {
-    let letter = e.key.toUpperCase()
 
+    playMusic(music);
+    setMusic(false);
+    let letter = e.key.toUpperCase()
 
     if (!validKeys.includes(letter)) {
       return;
@@ -322,9 +327,16 @@ function App() {
         // Confetti eff
         showConfetti: true,
         })
+        let audio = new Audio('../confetti-sound-effect-(hd)-By-tuna.voicemod.net.mp3');
+        audio.play();
       }else if(row===6 && correct !== 6){
           setDisplay(true);
           setShow(true);
+          let audio = new Audio('../epic-storm-thunder-rainwindwaves-no-loops-106800.mp3');
+          audio.loop=true;
+          //from chatgpt
+          audio.volume = 0.2;
+          audio.play();
       }
       setRow(row + 1);
       return;
@@ -359,6 +371,7 @@ function App() {
     var input = input[0];
     input.focus();
     input.click();
+  
   });
 
   return (
